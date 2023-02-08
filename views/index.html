@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="../gulpfile.js"></script>
+    <script src="/js/index.js"></script>
     <title>dk techin</title>
   </head>
   <body>
@@ -15,36 +15,52 @@
           <span class="blind">dk techin</span>
           <a href="#" class="header__link"></a>
         </h1>
-        <!-- [D] 모바일일 때 display : block; -->
-        <button type="button" class="header__menu-btn">
+        <!-- 모바일일 때 'header__menu-btn' 클래스 display block -->
+        <button type="button" class="header__menu-btn sp_img">
           <span class="blind">메뉴 열기</span>
         </button>
-        <!-- [D] 햄버거 버튼 클릭 시 display: block -->
-        <div class="dimmed"></div>
+        <!-- 'header__menu-btn' 클릭 시 'menu-mo' 클래스에 'is-active' 클래스 추가 -->
         <div class="menu-mo">
-          <div class="menu-mo__list">
-            <strong class="menu-mo__title">인기 카테고리</strong>
-            <p class="menu-mo__item">인기 블로그</p>
-            <p class="menu-mo__item">인기 스토리</p>
+          <div class="menu-mo__list menu-mo__list--category">
+            <strong class="menu-mo__title sp_img">
+              <span class="blind">인기 카테고리</span>
+            </strong>
+            <a href="#" class="menu-mo__item sp_img">
+              <span class="blind">인기 블로그</span>
+            </a>
+            <a href="#" class="menu-mo__item sp_img">
+              <span class="blind">인기 스토리</span>
+            </a>
           </div>
-          <div class="menu-mo__list">
-            <strong class="menu-mo__title">태그</strong>
-            <p class="menu-mo__item">#친절한답글러</p>
-            <p class="menu-mo__item">#해외여행</p>
-            <p class="menu-mo__item">#12월이슈포스트</p>
-            <p class="menu-mo__item">#100만구독</p>
+          <div class="menu-mo__list menu-mo__list--tag">
+            <strong class="menu-mo__title sp_img">
+              <span class="blind">태그</span>
+            </strong>
+            <a href="#" class="menu-mo__item sp_img">
+              <span class="blind">#친절한답글러</span>
+            </a>
+            <a href="#" class="menu-mo__item sp_img">
+              <span class="blind">#해외여행</span>
+            </a>
+            <a href="#" class="menu-mo__item sp_img">
+              <span class="blind">#12월이슈포스트</span>
+            </a>
+            <a href="#" class="menu-mo__item sp_img">
+              <span class="blind">#100만구독</span>
+            </a>
           </div>
           <button type="button" class="header__close-btn">
             <span class="blind">메뉴 닫기</span>
           </button>
         </div>
+        <div class="dimmed"></div>
       </header>
-      <!-- [D] 모바일일 때 display : none; -->
       <main class="main">
-        <!-- [D] aria-expanded=false 일 때 is-active 추가,
-                 aria-expanded=true 일 때 is-active 제거-->
+        <!-- 모바일일 때 'nav'클래스 display none -->
+        <!-- 'nav__btn'의 aria-expanded가 false 일 때 'nav'에 is-active 클래스 추가 -->
+        <!-- 'nav__btn'의 aria-expanded가 true 일 때 'nav'에 is-active 클래스 제거 -->
         <nav class="nav">
-          <button type="button" class="nav__btn" aria-haspopup="true" aria-expanded="true">
+          <button type="button" class="nav__btn sp_img" aria-haspopup="true" aria-expanded="true">
             <span class="blind">메뉴 닫기</span>
           </button>
           <div class="nav__list nav__list--category">
@@ -78,19 +94,21 @@
         </nav>
         <section class="category">
           <div class="category__inner">
-            <h2 class="category__title">
+            <h2 class="category__title sp_img">
               <span class="blind">인기 카테고리</span>
             </h2>
             <div class="category__tab">
-              <!-- [D] tab-btn 클릭 시 is-active 추가 -->
-              <button type="button" class="category__tab-btn tab-btn-left sp_img is-active">
+              <!-- 'tab-btn-left' 클릭 시 'blog' display block, 'story' 클래스 display none -->
+              <!-- 'tab-btn-left' 클릭 시 'is-active' 클래스 추가, 'tab-btn-right'에 'is-active' 클래스 제거 -->
+              <button type="button" class="category__tab-btn tab-btn-left sp_img">
                 <span class="blind">인기 블로그</span>
               </button>
-              <button type="button" class="category__tab-btn tab-btn-right sp_img">
+              <!-- 'tab-btn-left' 클릭 시 'stroy' 클래스 display block, 'blog' display none -->
+              <!-- 'tab-btn-right' 클릭 시 'is-active' 클래스 추가, 'tab-btn-left'에 'is-active' 클래스 제거 -->
+              <button type="button" class="category__tab-btn tab-btn-right sp_img is-active">
                 <span class="blind">인기 스토리</span>
               </button>
             </div>
-            <!-- tab-btn-right 클릭 시 blog display: none; 처리 -->
             <ul class="blog">
               <li class="blog__item">
                 <span class="blog__img"></span>
@@ -295,7 +313,7 @@
                 </div>
               </li>
             </ul>
-            <!-- tab-btn-left 클릭 시 story display: none; 처리 -->
+            <!-- tab-btn-left 클릭 시 'story' 클래스 display none -->
             <div class="story">
               <h3 class="story__title sp_img">
                 <span class="blind">베스트 글</span>
@@ -328,31 +346,31 @@
                   </h3>
                   <ul class="ranking__list">
                     <li class="ranking__item">
-                      <p class="ranking__item-title"><span class="num">1</span> 한 달에 5개 이상 포스팅할 정도면..</p>
+                      <p class="ranking__item-title"><span class="num">1</span> 한 달에 5개 이상 포스팅할 정도면.. 블로그 좀 하시는 군요?</p>
                       <span class="ranking__grade sp_img">
                         <span class="blind">평점 5점 중 5점</span>
                       </span>
                     </li>
                     <li class="ranking__item">
-                      <p class="ranking__item-title"><span class="num">2</span> 한 달에 5개 이상 포스팅할 정도면..</p>
+                      <p class="ranking__item-title"><span class="num">2</span> 한 달에 5개 이상 포스팅할 정도면.. 블로그 좀 하시는 군요?</p>
                       <span class="ranking__grade sp_img">
                         <span class="blind">평점 5점 중 3.5점</span>
                       </span>
                     </li>
                     <li class="ranking__item">
-                      <p class="ranking__item-title"><span class="num">3</span> 한 달에 5개 이상 포스팅할 정도면..</p>
+                      <p class="ranking__item-title"><span class="num">3</span> 한 달에 5개 이상 포스팅할 정도면.. 블로그 좀 하시는 군요?</p>
                       <span class="ranking__grade sp_img">
                         <span class="blind">평점 5점 중 2.5점</span>
                       </span>
                     </li>
                     <li class="ranking__item">
-                      <p class="ranking__item-title"><span class="num">4</span> 한 달에 5개 이상 포스팅할 정도면..</p>
+                      <p class="ranking__item-title"><span class="num">4</span> 한 달에 5개 이상 포스팅할 정도면.. 블로그 좀 하시는 군요?</p>
                       <span class="ranking__grade sp_img">
                         <span class="blind">평점 5점 중 2점</span>
                       </span>
                     </li>
                     <li class="ranking__item">
-                      <p class="ranking__item-title"><span class="num">5</span> 한 달에 5개 이상 포스팅할 정도면..</p>
+                      <p class="ranking__item-title"><span class="num">5</span> 한 달에 5개 이상 포스팅할 정도면.. 블로그 좀 하시는 군요?</p>
                       <span class="ranking__grade sp_img">
                         <span class="blind">평점 5점 중 0.5점</span>
                       </span>
@@ -365,65 +383,69 @@
                     <div class="new__contents first">
                       <p class="new__subtitle">#국내여행블로그</p>
                       <!-- swiper 라이프러리 추가 예정 -->
-                      <div class="swiper">
-                        <ul class="swiper-wrapper new__list">
-                          <li class="swiper-slide new__item">
-                            <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
-                            <img src="../img/new-big.png" class="new__img-mo" alt="" />
-                          </li>
-                          <li class="swiper-slide new__item">
-                            <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
-                            <img src="../img/new-big.png" class="new__img-mo" alt="" />
-                          </li>
-                          <li class="swiper-slide new__item">
-                            <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
-                            <img src="../img/new-big.png" class="new__img-mo" alt="" />
-                          </li>
-                          <li class="swiper-slide new__item">
-                            <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
-                            <img src="../img/new-big.png" class="new__img-mo" alt="" />
-                          </li>
-                          <li class="swiper-slide new__item">
-                            <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
-                            <img src="../img/new-big.png" class="new__img-mo" alt="" />
-                          </li>
-                        </ul>
-                        <button type="button" class="swiper-button swiper-button-prev sp_img">
-                          <span class="blind">이전</span>
-                        </button>
-                        <button type="button" class="swiper-button swiper-button-next sp_img">
-                          <span class="blind">다음</span>
-                        </button>
+                      <div class="swiper-box">
+                        <div class="swiper">
+                          <ul class="swiper-wrapper">
+                            <li class="swiper-slide">
+                              <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
+                              <img src="../img/new-big.png" class="new__img-mo" alt="" />
+                            </li>
+                            <li class="swiper-slide">
+                              <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
+                              <img src="../img/new-big.png" class="new__img-mo" alt="" />
+                            </li>
+                            <li class="swiper-slide">
+                              <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
+                              <img src="../img/new-big.png" class="new__img-mo" alt="" />
+                            </li>
+                            <li class="swiper-slide">
+                              <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
+                              <img src="../img/new-big.png" class="new__img-mo" alt="" />
+                            </li>
+                            <li class="swiper-slide">
+                              <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
+                              <img src="../img/new-big.png" class="new__img-mo" alt="" />
+                            </li>
+                          </ul>
+                          <button type="button" class="swiper-button swiper-button-prev sp_img">
+                            <span class="blind">이전</span>
+                          </button>
+                          <button type="button" class="swiper-button swiper-button-next sp_img">
+                            <span class="blind">다음</span>
+                          </button>
+                        </div>
                       </div>
                     </div>
                     <div class="new__contents second">
                       <p class="new__subtitle">#100만방문자</p>
                       <!-- swiper 라이브러리 추가 예정 -->
-                      <div class="swiper">
-                        <ul class="swiper-wrapper new__list">
-                          <li class="swiper-slide new__item">
-                            <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
-                            <img src="../img/new-sm.png" class="new__img-mo" alt="" />
-                            <p class="new__desc">
-                              한 달에 5개 이상<br class="br-pc" />
-                              포스팅 할 정도면..
-                            </p>
-                          </li>
-                          <li class="swiper-slide new__item">
-                            <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
-                            <img src="../img/new-sm.png" class="new__img-mo" alt="" />
-                            <p class="new__desc">
-                              한 달에 5개 이상<br class="br-pc" />
-                              포스팅 할 정도면..
-                            </p>
-                          </li>
-                        </ul>
-                        <button type="button" class="swiper-button swiper-button-prev sp_img">
-                          <span class="blind">이전</span>
-                        </button>
-                        <button type="button" class="swiper-button swiper-button-next sp_img">
-                          <span class="blind">다음</span>
-                        </button>
+                      <div class="swiper-box">
+                        <div class="swiper">
+                          <ul class="swiper-wrapper">
+                            <li class="swiper-slide">
+                              <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
+                              <img src="../img/new-sm.png" class="new__img-mo" alt="" />
+                              <p class="new__desc">
+                                한 달에 5개 이상<br class="br-pc" />
+                                포스팅 할 정도면.. 블로그 좀 하시는 군요?
+                              </p>
+                            </li>
+                            <li class="swiper-slide">
+                              <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
+                              <img src="../img/new-sm.png" class="new__img-mo" alt="" />
+                              <p class="new__desc">
+                                한 달에 5개 이상<br class="br-pc" />
+                                포스팅 할 정도면..
+                              </p>
+                            </li>
+                          </ul>
+                          <button type="button" class="swiper-button swiper-button-prev sp_img">
+                            <span class="blind">이전</span>
+                          </button>
+                          <button type="button" class="swiper-button swiper-button-next sp_img">
+                            <span class="blind">다음</span>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -444,8 +466,9 @@
                       <div class="swiper-img sp_img"></div>
                     </li>
                   </ul>
-                  <div class="swiper-button-prev"></div>
-                  <div class="swiper-button-next"></div>
+                  <button type="button" class="swiper-button swiper-button-prev"></button>
+                  <button type="button" class="swiper-button swiper-button-next"></button>
+                  <div class="swiper-pagination"></div>
                 </div>
               </div>
             </div>
@@ -453,7 +476,7 @@
         </section>
       </main>
       <footer class="footer">
-        <p class="footer__desc">Copyright (c) dk techin All rights reserved.</p>
+        <p class="footer__desc">Copyright &lpar;c&rpar; dk techin All rights reserved.</p>
       </footer>
     </div>
   </body>

@@ -22,10 +22,18 @@ legend {
   content: "";
 }
 
+
+
 .sp_img::before {
-  background-image: url("../../img/css_sprites.png");
+  background-image: url("../../img/sprite/css_sprites.png");
   background-size: 1133px 824px;
+
+  @media screen and (max-width: 960px) {
+      background-image: url("../../img/sprite/css_sprites_mo.png");
+      background-size: 600px 394px;
+    }
 }
+
 
 // .sp_img_mo::before {
 //   background-image: url("../../img/css_sprites_mo.png");
