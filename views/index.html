@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
+    <script src="../gulpfile.js"></script>
     <title>dk techin</title>
   </head>
   <body>
@@ -18,20 +19,21 @@
         <button type="button" class="header__menu-btn">
           <span class="blind">메뉴 열기</span>
         </button>
-        <!-- [D] 햄버거 버튼 클릭 시 is-active 추가 -->
-        <div class="header__menu">
-          <dl class="header__menu-list">
-            <dt class="header__menu-item">인기 카테고리</dt>
-            <dd class="header__menu-item">인기 블로그</dd>
-            <dd class="header__menu-item">인기 스토리</dd>
-          </dl>
-          <dl class="header__menu-list">
-            <dt>태그</dt>
-            <dd class="header__menu-item">#친절한답글러</dd>
-            <dd class="header__menu-item">#해외여행</dd>
-            <dd class="header__menu-item">#12월이슈포스트</dd>
-            <dd class="header__menu-item">#100만구독</dd>
-          </dl>
+        <!-- [D] 햄버거 버튼 클릭 시 display: block -->
+        <div class="dimmed"></div>
+        <div class="menu-mo">
+          <div class="menu-mo__list">
+            <strong class="menu-mo__title">인기 카테고리</strong>
+            <p class="menu-mo__item">인기 블로그</p>
+            <p class="menu-mo__item">인기 스토리</p>
+          </div>
+          <div class="menu-mo__list">
+            <strong class="menu-mo__title">태그</strong>
+            <p class="menu-mo__item">#친절한답글러</p>
+            <p class="menu-mo__item">#해외여행</p>
+            <p class="menu-mo__item">#12월이슈포스트</p>
+            <p class="menu-mo__item">#100만구독</p>
+          </div>
           <button type="button" class="header__close-btn">
             <span class="blind">메뉴 닫기</span>
           </button>
@@ -39,23 +41,40 @@
       </header>
       <!-- [D] 모바일일 때 display : none; -->
       <main class="main">
+        <!-- [D] aria-expanded=false 일 때 is-active 추가,
+                 aria-expanded=true 일 때 is-active 제거-->
         <nav class="nav">
-          <div class="nav__list">
-            <strong class="nav__title">인기 카테고리</strong>
-            <p class="nav__item">인기 블로그</p>
-            <p class="nav__item">인기 스토리</p>
-          </div>
-          <div class="nav__list">
-            <strong class="nav__title">태그</strong>
-            <p class="nav__item">#친절한답글러</p>
-            <p class="nav__item">#해외여행</p>
-            <p class="nav__item">#12월이슈포스트</p>
-            <p class="nav__item">#100만구독</p>
-          </div>
-          <!-- [D] aria-expanded가 false 일 때 메뉴 닫기 -->
-          <button type="button" class="nav__btn" aria-expanded="true">
+          <button type="button" class="nav__btn" aria-haspopup="true" aria-expanded="true">
             <span class="blind">메뉴 닫기</span>
           </button>
+          <div class="nav__list nav__list--category">
+            <strong class="nav__title sp_img">
+              <span class="blind">인기 카테고리</span>
+            </strong>
+            <a href="#" class="nav__item sp_img" role="option">
+              <span class="blind">인기 블로그</span>
+            </a>
+            <a href="#" class="nav__item sp_img">
+              <span class="blind">인기 스토리</span>
+            </a>
+          </div>
+          <div class="nav__list nav__list--tag">
+            <strong class="nav__title sp_img">
+              <span class="blind">태그</span>
+            </strong>
+            <a href="#" class="nav__item sp_img">
+              <span class="blind">친절한 답글러</span>
+            </a>
+            <a href="#" class="nav__item sp_img">
+              <span class="blind">해외 여행</span>
+            </a>
+            <a href="#" class="nav__item sp_img">
+              <span class="blind">12월 이슈 포스트</span>
+            </a>
+            <a href="#" class="nav__item sp_img">
+              <span class="blind">100만 구독</span>
+            </a>
+          </div>
         </nav>
         <section class="category">
           <div class="category__inner">
@@ -63,10 +82,74 @@
               <span class="blind">인기 카테고리</span>
             </h2>
             <div class="category__tab">
-              <div class="category__tab-btn left" role="button">인기 블로그</div>
-              <div class="category__tab-btn right is-active" role="button">인기 스토리</div>
+              <!-- [D] tab-btn 클릭 시 is-active 추가 -->
+              <button type="button" class="category__tab-btn tab-btn-left sp_img is-active">
+                <span class="blind">인기 블로그</span>
+              </button>
+              <button type="button" class="category__tab-btn tab-btn-right sp_img">
+                <span class="blind">인기 스토리</span>
+              </button>
             </div>
+            <!-- tab-btn-right 클릭 시 blog display: none; 처리 -->
             <ul class="blog">
+              <li class="blog__item">
+                <span class="blog__img"></span>
+                <div class="blog__contents">
+                  <p class="blog__title-wrap">
+                    <strong class="blog__title">한 달에 5개 이상 포스팅할 정도면.. 블로그 좀 하시는 군요?</strong>
+                    <span class="blog__icon blog__icon--new sp_img">
+                      <span class="blind">인기글</span>
+                    </span>
+                  </p>
+                  <div class="blog__user-box">
+                    <p class="blog__user">
+                      blog201Q
+                      <span class="blind">작성자 id</span>
+                    </p>
+                    <p class="blog__user">
+                      키미
+                      <span class="blind">작성자 닉네임</span>
+                    </p>
+                  </div>
+                  <div class="blog__tag-box">
+                    <span class="blind">태그</span>
+                    <span class="blog__tag">#국내여행블로그</span>
+                    <span class="blog__tag">#100만방문자</span>
+                    <span class="blog__tag">#9년차블로그</span>
+                  </div>
+                </div>
+              </li>
+              <li class="blog__item">
+                <span class="blog__img"></span>
+                <div class="blog__contents">
+                  <p class="blog__title-wrap">
+                    <strong class="blog__title">한 달에 5개 이상 포스팅할 정도면.. 블로그 좀 하시는 군요?</strong>
+                    <span class="blog__icon blog__icon--hot sp_img">
+                      <span class="blind">인기글</span>
+                    </span>
+                  </p>
+                  <div class="blog__user-box">
+                    <p class="blog__user">
+                      blog201Q
+                      <span class="blind">작성자 id</span>
+                    </p>
+                    <p class="blog__user">
+                      키미
+                      <span class="blind">작성자 닉네임</span>
+                    </p>
+                  </div>
+                  <div class="blog__tag-box">
+                    <span class="blind">태그</span>
+                    <span class="blog__tag">#국내여행블로그</span>
+                    <span class="blog__tag">#100만방문자</span>
+                    <span class="blog__tag">#9년차블로그</span>
+                    <span class="blog__tag blog__tag--green">#상위1%부지러너</span>
+                    <span class="blog__tag blog__tag--purple">#상위1%댓글부자</span>
+                    <span class="blog__tag blog__tag--yellow">#친절한답글러</span>
+                    <span class="blog__tag blog__tag--brown">#10월이슈포스트</span>
+                  </div>
+                </div>
+              </li>
               <li class="blog__item">
                 <span class="blog__img"></span>
                 <div class="blog__contents">
@@ -96,41 +179,14 @@
                 <div class="blog__contents">
                   <p class="blog__title-wrap">
                     <strong class="blog__title">한 달에 5개 이상 포스팅할 정도면.. 블로그 좀 하시는 군요?</strong>
-                    <span class="blog__icon blog__icon--hot">
-                      <span class="blind">인기글</span>
-                    </span>
                   </p>
                   <div class="blog__user-box">
-                    <p class="blog__user">blog201Q
+                    <p class="blog__user">
+                      blog201Q
                       <span class="blind">작성자 id</span>
                     </p>
-                    <p class="blog__user">키미
-                      <span class="blind">작성자 닉네임</span>
-                    </p>
-                  </div>
-                  <div class="blog__tag-box">
-                    <span class="blind">태그</span>
-                    <span class="blog__tag">#국내여행블로그</span>
-                    <span class="blog__tag">#100만방문자</span>
-                    <span class="blog__tag">#9년차블로그</span>
-                    <span class="blog__tag blog__tag--green">#상위1%부지러너</span>
-                    <span class="blog__tag blog__tag--purple">#상위1%댓글부자</span>
-                    <span class="blog__tag blog__tag--yellow">#친절한답글러</span>
-                    <span class="blog__tag blog__tag--brown">#10월이슈포스트</span>
-                  </div>
-                </div>
-              </li>
-              <li class="blog__item">
-                <span class="blog__img"></span>
-                <div class="blog__contents">
-                  <p class="blog__title-wrap">
-                    <strong class="blog__title">한 달에 5개 이상 포스팅할 정도면.. 블로그 좀 하시는 군요?</strong>
-                  </p>
-                  <div class="blog__user-box">
-                    <p class="blog__user">blog201Q
-                      <span class="blind">작성자 id</span>
-                    </p>
-                    <p class="blog__user">키미
+                    <p class="blog__user">
+                      키미
                       <span class="blind">작성자 닉네임</span>
                     </p>
                   </div>
@@ -149,10 +205,12 @@
                     <strong class="blog__title">한 달에 5개 이상 포스팅할 정도면.. 블로그 좀 하시는 군요?</strong>
                   </p>
                   <div class="blog__user-box">
-                    <p class="blog__user">blog201Q
+                    <p class="blog__user">
+                      blog201Q
                       <span class="blind">작성자 id</span>
                     </p>
-                    <p class="blog__user">키미
+                    <p class="blog__user">
+                      키미
                       <span class="blind">작성자 닉네임</span>
                     </p>
                   </div>
@@ -171,10 +229,12 @@
                     <strong class="blog__title">한 달에 5개 이상 포스팅할 정도면.. 블로그 좀 하시는 군요?</strong>
                   </p>
                   <div class="blog__user-box">
-                    <p class="blog__user">blog201Q
+                    <p class="blog__user">
+                      blog201Q
                       <span class="blind">작성자 id</span>
                     </p>
-                    <p class="blog__user">키미
+                    <p class="blog__user">
+                      키미
                       <span class="blind">작성자 닉네임</span>
                     </p>
                   </div>
@@ -193,10 +253,12 @@
                     <strong class="blog__title">한 달에 5개 이상 포스팅할 정도면.. 블로그 좀 하시는 군요?</strong>
                   </p>
                   <div class="blog__user-box">
-                    <p class="blog__user">blog201Q
+                    <p class="blog__user">
+                      blog201Q
                       <span class="blind">작성자 id</span>
                     </p>
-                    <p class="blog__user">키미
+                    <p class="blog__user">
+                      키미
                       <span class="blind">작성자 닉네임</span>
                     </p>
                   </div>
@@ -215,32 +277,12 @@
                     <strong class="blog__title">한 달에 5개 이상 포스팅할 정도면.. 블로그 좀 하시는 군요?</strong>
                   </p>
                   <div class="blog__user-box">
-                    <p class="blog__user">blog201Q
+                    <p class="blog__user">
+                      blog201Q
                       <span class="blind">작성자 id</span>
                     </p>
-                    <p class="blog__user">키미
-                      <span class="blind">작성자 닉네임</span>
-                    </p>
-                  </div>
-                  <div class="blog__tag-box">
-                    <span class="blind">태그</span>
-                    <span class="blog__tag">#국내여행블로그</span>
-                    <span class="blog__tag">#100만방문자</span>
-                    <span class="blog__tag">#9년차블로그</span>
-                  </div>
-                </div>
-              </li>
-              <li class="blog__item">
-                <span class="blog__img"></span>
-                <div class="blog__contents">
-                  <p class="blog__title-wrap">
-                    <strong class="blog__title">한 달에 5개 이상 포스팅할 정도면.. 블로그 좀 하시는 군요?</strong>
-                  </p>
-                  <div class="blog__user-box">
-                    <p class="blog__user">blog201Q
-                      <span class="blind">작성자 id</span>
-                    </p>
-                    <p class="blog__user">키미
+                    <p class="blog__user">
+                      키미
                       <span class="blind">작성자 닉네임</span>
                     </p>
                   </div>
@@ -253,77 +295,158 @@
                 </div>
               </li>
             </ul>
-            <!-- [D] 인기스토리 탭 클릭 시 display: block; -->
+            <!-- tab-btn-left 클릭 시 story display: none; 처리 -->
             <div class="story">
-              <h3 class="category__subtitle">best</h3>
+              <h3 class="story__title sp_img">
+                <span class="blind">베스트 글</span>
+              </h3>
               <div class="story__inner">
-                <ul class="story__list">
+                <ul class="story__list left">
+                  <li class="story__item sp_img">
+                    <p class="story__item-title">한 달에 5개 이상 포스팅할 정도면..<br />블로그 좀 하시는 군요?</p>
+                  </li>
+                </ul>
+                <ul class="story__list right">
                   <li class="story__item">
-                    <p class="story__title">한 달에 5개 이상 포스팅할 정도면.. 블로그 좀 하시는 군요?</p>
+                    <p class="story__item-title">한 달에 5개 이상 포스팅할 정도면..<br />블로그 좀 하시는 군요?</p>
                   </li>
-                </ul>
-                <ul class="story__list">
-                  <li>
-                    <p class="story__title">한 달에 5개 이상 포스팅할 정도면.. 블로그 좀 하시는 군요?</p>
+                  <li class="story__item">
+                    <p class="story__item-title">한 달에 5개 이상 포스팅할 정도면..<br />블로그 좀 하시는 군요?</p>
                   </li>
-                  <li>
-                    <p class="story__title">한 달에 5개 이상 포스팅할 정도면.. 블로그 좀 하시는 군요?</p>
+                  <li class="story__item">
+                    <p class="story__item-title">한 달에 5개 이상 포스팅할 정도면..<br />블로그 좀 하시는 군요?</p>
                   </li>
-                  <li>
-                    <p class="story__title">한 달에 5개 이상 포스팅할 정도면.. 블로그 좀 하시는 군요?</p>
-                  </li>
-                  <li>
-                    <p class="story__title">한 달에 5개 이상 포스팅할 정도면.. 블로그 좀 하시는 군요?</p>
+                  <li class="story__item">
+                    <p class="story__item-title">한 달에 5개 이상 포스팅할 정도면..<br />블로그 좀 하시는 군요?</p>
                   </li>
                 </ul>
               </div>
-              <div class="ranking">
-                <h3 class="category__subtitle">ranking</h3>
-                <ul class="ranking__list">
-                  <li class="ranking__item">
-                    <p class="ranking__title">1 한 달에 5개 이상 포스팅할 정도면..</p>
-                    <span class="ranking__grade"></span>
-                  </li>
-                  <li class="ranking__item">
-                    <p class="ranking__title">2 한 달에 5개 이상 포스팅할 정도면..</p>
-                    <span class="ranking__grade"></span>
-                  </li>
-                  <li class="ranking__item">
-                    <p class="ranking__title">3 한 달에 5개 이상 포스팅할 정도면..</p>
-                    <span class="ranking__grade"></span>
-                  </li>
-                  <li class="ranking__item">
-                    <p class="ranking__title">4 한 달에 5개 이상 포스팅할 정도면..</p>
-                    <span class="ranking__grade"></span>
-                  </li>
-                  <li class="ranking__item">
-                    <p class="ranking__title">5 한 달에 5개 이상 포스팅할 정도면..</p>
-                    <span class="ranking__grade"></span>
-                  </li>
-                </ul>
-              </div>
-              <div class="new">
-                <h3 class="category__subtitle">new</h3>
-                <div class="new__inner">
-                  <h4 class="new__title">#국내여행블로그</h4>
-                  <!-- swiper -->
-                  <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+              <div class="story__inner">
+                <div class="ranking">
+                  <h3 class="ranking__title sp_img">
+                    <span class="blind">랭킹</span>
+                  </h3>
+                  <ul class="ranking__list">
+                    <li class="ranking__item">
+                      <p class="ranking__item-title"><span class="num">1</span> 한 달에 5개 이상 포스팅할 정도면..</p>
+                      <span class="ranking__grade sp_img">
+                        <span class="blind">평점 5점 중 5점</span>
+                      </span>
+                    </li>
+                    <li class="ranking__item">
+                      <p class="ranking__item-title"><span class="num">2</span> 한 달에 5개 이상 포스팅할 정도면..</p>
+                      <span class="ranking__grade sp_img">
+                        <span class="blind">평점 5점 중 3.5점</span>
+                      </span>
+                    </li>
+                    <li class="ranking__item">
+                      <p class="ranking__item-title"><span class="num">3</span> 한 달에 5개 이상 포스팅할 정도면..</p>
+                      <span class="ranking__grade sp_img">
+                        <span class="blind">평점 5점 중 2.5점</span>
+                      </span>
+                    </li>
+                    <li class="ranking__item">
+                      <p class="ranking__item-title"><span class="num">4</span> 한 달에 5개 이상 포스팅할 정도면..</p>
+                      <span class="ranking__grade sp_img">
+                        <span class="blind">평점 5점 중 2점</span>
+                      </span>
+                    </li>
+                    <li class="ranking__item">
+                      <p class="ranking__item-title"><span class="num">5</span> 한 달에 5개 이상 포스팅할 정도면..</p>
+                      <span class="ranking__grade sp_img">
+                        <span class="blind">평점 5점 중 0.5점</span>
+                      </span>
+                    </li>
                   </ul>
-                  <h4 class="new__title">#100만방문자</h4>
-                  <!-- swiper -->
-                  <ul>
-                    <li></li>
-                    <li></li>
-                  </ul>
+                </div>
+                <div class="new">
+                  <h3 class="new__title sp_img">new</h3>
+                  <div class="new__contents-wrap">
+                    <div class="new__contents first">
+                      <p class="new__subtitle">#국내여행블로그</p>
+                      <!-- swiper 라이프러리 추가 예정 -->
+                      <div class="swiper">
+                        <ul class="swiper-wrapper new__list">
+                          <li class="swiper-slide new__item">
+                            <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
+                            <img src="../img/new-big.png" class="new__img-mo" alt="" />
+                          </li>
+                          <li class="swiper-slide new__item">
+                            <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
+                            <img src="../img/new-big.png" class="new__img-mo" alt="" />
+                          </li>
+                          <li class="swiper-slide new__item">
+                            <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
+                            <img src="../img/new-big.png" class="new__img-mo" alt="" />
+                          </li>
+                          <li class="swiper-slide new__item">
+                            <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
+                            <img src="../img/new-big.png" class="new__img-mo" alt="" />
+                          </li>
+                          <li class="swiper-slide new__item">
+                            <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
+                            <img src="../img/new-big.png" class="new__img-mo" alt="" />
+                          </li>
+                        </ul>
+                        <button type="button" class="swiper-button swiper-button-prev sp_img">
+                          <span class="blind">이전</span>
+                        </button>
+                        <button type="button" class="swiper-button swiper-button-next sp_img">
+                          <span class="blind">다음</span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="new__contents second">
+                      <p class="new__subtitle">#100만방문자</p>
+                      <!-- swiper 라이브러리 추가 예정 -->
+                      <div class="swiper">
+                        <ul class="swiper-wrapper new__list">
+                          <li class="swiper-slide new__item">
+                            <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
+                            <img src="../img/new-sm.png" class="new__img-mo" alt="" />
+                            <p class="new__desc">
+                              한 달에 5개 이상<br class="br-pc" />
+                              포스팅 할 정도면..
+                            </p>
+                          </li>
+                          <li class="swiper-slide new__item">
+                            <img src="../img/new-item-img.png" class="new__img new__img-pc" alt="" />
+                            <img src="../img/new-sm.png" class="new__img-mo" alt="" />
+                            <p class="new__desc">
+                              한 달에 5개 이상<br class="br-pc" />
+                              포스팅 할 정도면..
+                            </p>
+                          </li>
+                        </ul>
+                        <button type="button" class="swiper-button swiper-button-prev sp_img">
+                          <span class="blind">이전</span>
+                        </button>
+                        <button type="button" class="swiper-button swiper-button-next sp_img">
+                          <span class="blind">다음</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="recommend">
-                <!-- swiper -->
+                <!-- swiper 라이브러리 추가 예정 -->
+                <div class="swiper">
+                  <span class="blind">추천 글 바로가기</span>
+                  <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                      <div class="swiper-img sp_img"></div>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="swiper-img sp_img"></div>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="swiper-img sp_img"></div>
+                    </li>
+                  </ul>
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
+                </div>
               </div>
             </div>
           </div>

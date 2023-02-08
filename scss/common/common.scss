@@ -11,3 +11,23 @@ legend {
   text-indent: -9999px;
   white-space: nowrap;
 }
+
+.sp_img::before,
+.sp_img_mo::before {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  font-size: 0;
+  content: "";
+}
+
+.sp_img::before {
+  background-image: url("../../img/css_sprites.png");
+  background-size: 1133px 824px;
+}
+
+// .sp_img_mo::before {
+//   background-image: url("../../img/css_sprites_mo.png");
+//   background-size: 600px 394px;
+// }
