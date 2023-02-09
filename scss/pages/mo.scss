@@ -50,7 +50,7 @@
       width: 70%;
       height: 100%;
       padding: 0 27px;
-      background-color: #fff;
+      background-color: $color-white;
       transition: transform 0.5s;
 
       &.is-active {
@@ -76,7 +76,7 @@
         position: relative;
         z-index: calc($z-index-minimum + 2);
         margin-top: 67px;
-        background-color: #fff;
+        background-color: $color-white;
 
         &--category {
           .menu-mo {
@@ -647,7 +647,6 @@
 
 @media screen and (max-width: $screen-sm) {
   .category {
-
     .new {
       &__contents {
         &.second {

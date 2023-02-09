@@ -155,7 +155,7 @@ legend {
   background-image: url("../../img/sprite/css_sprites.png");
   background-size: 1133px 824px;
 }
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 959px) {
   .sp_img::before {
     background-image: url("../../img/sprite/css_sprites_mo.png");
     background-size: 600px 394px;
@@ -211,7 +211,7 @@ legend {
   padding: 47px 27px;
   border-right: 1px solid #cccccc;
   border-left: 1px solid #cccccc;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 .nav.is-active {
   width: 0;
@@ -407,8 +407,6 @@ legend {
   background-image: url("../../img/blog-img-01.png");
 }
 .category .blog__contents {
-  display: flex;
-  flex-direction: column;
   width: 80%;
   padding: 24px 37px;
 }
@@ -472,7 +470,7 @@ legend {
   padding: 0 10px;
   background-color: #b3b6bb;
   border-radius: 2px;
-  color: #fff;
+  color: #ffffff;
 }
 .category .blog__tag-box {
   display: flex;
@@ -531,16 +529,10 @@ legend {
   background-position: -10px -286px;
 }
 .category .story__list.left .story__item-title {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
   padding: 24px 28px;
-  background-color: #000;
   font-size: 20px;
-  color: #fff;
   line-height: 28px;
   letter-spacing: -0.5px;
-  opacity: 0.6;
 }
 .category .story__list.right {
   display: inline-flex;
@@ -563,16 +555,23 @@ legend {
   content: "";
 }
 .category .story__list.right .story__item-title {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
   padding: 14px;
-  background-color: #000;
   font-size: 12px;
-  color: #fff;
   line-height: 14px;
   letter-spacing: -0.3px;
+}
+.category .story__item {
+  cursor: pointer;
+}
+.category .story__item-title {
+  position: absolute;
+  overflow: hidden;
+  bottom: 0;
+  width: 100%;
+  background-color: #000;
+  color: #ffffff;
   opacity: 0.6;
+  word-wrap: break-word;
 }
 .category .ranking {
   display: inline-block;
@@ -590,7 +589,7 @@ legend {
   background-position: -1023px -637px;
 }
 .category .ranking__list {
-  background: #fff;
+  background: #ffffff;
   margin-top: 14px;
 }
 .category .ranking__item {
@@ -598,6 +597,7 @@ legend {
   justify-content: space-between;
   padding: 5px 14px 12px 7px;
   border-bottom: 1px solid #cccccc;
+  cursor: pointer;
 }
 .category .ranking__item-title {
   display: -webkit-box;
@@ -605,6 +605,7 @@ legend {
   max-width: 230px;
   font-weight: bold;
   font-size: 14px;
+  opacity: 0.6;
   letter-spacing: -0.35px;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
@@ -640,7 +641,7 @@ legend {
   flex-direction: column;
   margin-top: 6px;
   padding-bottom: 11px;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 .category .new__contents-wrap {
   display: flex;
@@ -672,6 +673,7 @@ legend {
 }
 .category .new .swiper-slide {
   display: flex;
+  cursor: pointer;
 }
 .category .new .swiper-wrapper {
   display: flex;
@@ -729,7 +731,7 @@ legend {
   text-overflow: ellipsis;
 }
 .category .recommend {
-  background-color: #fff;
+  background-color: #ffffff;
   margin-top: 74px;
   padding-bottom: 40px;
 }
@@ -747,6 +749,7 @@ legend {
   position: relative;
   width: 592px;
   height: 256px;
+  cursor: pointer;
 }
 .category .recommend .swiper-img.sp_img {
   width: 592px;
@@ -774,7 +777,7 @@ legend {
   display: none;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 959px) {
   .header {
     display: flex;
     align-items: center;
@@ -819,7 +822,7 @@ legend {
     width: 70%;
     height: 100%;
     padding: 0 27px;
-    background-color: #fff;
+    background-color: #ffffff;
     transition: transform 0.5s;
   }
   .header .menu-mo.is-active {
@@ -843,7 +846,7 @@ legend {
     position: relative;
     z-index: 3;
     margin-top: 67px;
-    background-color: #fff;
+    background-color: #ffffff;
   }
   .header .menu-mo__list--category .menu-mo__title.sp_img {
     width: 95px;
@@ -1263,7 +1266,7 @@ legend {
     display: block;
   }
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 639px) {
   .category .new__contents.second {
     width: 50%;
     margin-top: 6px;
